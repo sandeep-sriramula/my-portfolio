@@ -1,16 +1,244 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import HeroScene from '../components/HeroScene.tsx';
+import AnimatedText from '../components/AnimatedText.tsx';
+import SkillsVisualization from '../components/SkillsVisualization.tsx';
+import ProjectShowcase from '../components/ProjectShowcase.tsx';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Sandeep Sriramula - Creative Developer">
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center">
+    <HeroScene client:load />
+    
+    <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <div class="mb-8">
+        <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Sandeep Sriramula
+        </h1>
+        
+        <h2 class="text-3xl md:text-5xl font-light text-gray-300 mb-8">
+          Creative Developer
+        </h2>
+        
+        <div class="text-2xl md:text-4xl font-light text-gray-300 mb-8 h-16">
+          I build <AnimatedText 
+            client:load
+            texts={[
+              "stunning websites",
+              "interactive experiences", 
+              "3D visualizations",
+              "modern applications"
+            ]}
+            className="text-cyan-400 font-semibold"
+          />
+        </div>
+        
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-16 leading-relaxed">
+          Crafting digital experiences that blend cutting-edge technology with beautiful design. 
+          Specializing in <span class="text-cyan-400">WebGL</span>, <span class="text-cyan-400">Three.js</span>, 
+          and <span class="text-cyan-400">modern web frameworks</span>.
+        </p>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8">
+        <a 
+          href="#projects" 
+          class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/25"
+        >
+          View My Work
+        </a>
+        
+        <a 
+          href="#contact" 
+          class="px-8 py-4 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-semibold rounded-full transition-all duration-300"
+        >
+          Get In Touch
+        </a>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          About Me
+        </h2>
+        
+        <!-- Main Description Card -->
+        <div class="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 mb-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-full blur-2xl"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/10 to-cyan-500/10 rounded-full blur-2xl"></div>
+          
+          <div class="relative z-10">
+            <div class="flex items-center mb-6">
+              <div class="w-2 h-12 bg-gradient-to-b from-cyan-400 to-purple-400 rounded-full mr-4"></div>
+              <h3 class="text-2xl font-bold text-white">Full-Stack Developer & AI Specialist</h3>
+            </div>
+            
+            <p class="text-lg text-gray-300 leading-relaxed mb-6">
+              I'm passionate about creating innovative solutions that bridge <span class="text-cyan-400 font-semibold">AI/ML technology</span> 
+              with exceptional user experiences. My expertise spans modern web development, cross-platform applications, 
+              and intelligent system integration.
+            </p>
+            
+            <p class="text-lg text-gray-300 leading-relaxed">
+              From <span class="text-cyan-400">AI banking assistants</span> and <span class="text-cyan-400">glassmorphism UI libraries</span> 
+              to business management tools and mobile applications, I build scalable solutions using React, Python, C#, and Android.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Skills Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- AI/ML Card -->
+          <div class="bg-gradient-to-br from-cyan-500/10 to-cyan-600/10 border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-300 group">
+            <div class="text-cyan-400 text-3xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
+            <h4 class="text-xl font-bold text-white mb-2">AI/ML</h4>
+            <p class="text-gray-400 text-sm">Building intelligent systems with Python, FastAPI, and modern AI frameworks</p>
+          </div>
+          
+          <!-- Full-Stack Card -->
+          <div class="bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-300 group">
+            <div class="text-purple-400 text-3xl mb-4 group-hover:scale-110 transition-transform">⚡</div>
+            <h4 class="text-xl font-bold text-white mb-2">Full-Stack</h4>
+            <p class="text-gray-400 text-sm">End-to-end web development with React, TypeScript, and modern frameworks</p>
+          </div>
+          
+          <!-- UI/UX Card -->
+          <div class="bg-gradient-to-br from-pink-500/10 to-pink-600/10 border border-pink-500/30 rounded-xl p-6 hover:border-pink-400/50 transition-all duration-300 group">
+            <div class="text-pink-400 text-3xl mb-4 group-hover:scale-110 transition-transform">🎨</div>
+            <h4 class="text-xl font-bold text-white mb-2">UI/UX</h4>
+            <p class="text-gray-400 text-sm">Creating beautiful, responsive interfaces with attention to user experience</p>
+          </div>
+          
+          <!-- Cross-Platform Card -->
+          <div class="bg-gradient-to-br from-green-500/10 to-green-600/10 border border-green-500/30 rounded-xl p-6 hover:border-green-400/50 transition-all duration-300 group">
+            <div class="text-green-400 text-3xl mb-4 group-hover:scale-110 transition-transform">📱</div>
+            <h4 class="text-xl font-bold text-white mb-2">Cross-Platform</h4>
+            <p class="text-gray-400 text-sm">Developing for web, mobile, and desktop with unified solutions</p>
+          </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-cyan-400 mb-2">9+</div>
+            <div class="text-gray-400 text-sm">Projects</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-purple-400 mb-2">5+</div>
+            <div class="text-gray-400 text-sm">Technologies</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-pink-400 mb-2">3+</div>
+            <div class="text-gray-400 text-sm">Years</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-green-400 mb-2">∞</div>
+            <div class="text-gray-400 text-sm">Ideas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+        Skills & Technologies
+      </h2>
+      
+      <SkillsVisualization client:load />
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+        Featured Projects
+      </h2>
+      
+      <ProjectShowcase client:load />
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          Let's Work Together
+        </h2>
+        
+        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+          Have a project in mind? I'm always excited to collaborate on innovative ideas and bring creative visions to life.
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
+            <div class="text-4xl mb-4">✉️</div>
+            <h3 class="text-xl font-semibold text-white mb-2">Email</h3>
+            <p class="text-gray-400">sandeep.sriramula@example.com</p>
+          </div>
+          
+          <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
+            <div class="text-4xl mb-4">💼</div>
+            <h3 class="text-xl font-semibold text-white mb-2">LinkedIn</h3>
+            <p class="text-gray-400">Connect with me professionally</p>
+          </div>
+          
+          <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
+            <div class="text-4xl mb-4">🐙</div>
+            <h3 class="text-xl font-semibold text-white mb-2">GitHub</h3>
+            <p class="text-gray-400">Check out my code</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <a 
+            href="mailto:sandeep.sriramula@example.com" 
+            class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+          >
+            Send Message
+          </a>
+          
+          <a 
+            href="/resume.pdf" 
+            target="_blank"
+            class="px-8 py-4 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-semibold rounded-full transition-all duration-300"
+          >
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
